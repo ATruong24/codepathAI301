@@ -1,15 +1,15 @@
 # Contribution [#]: [Issue Title]
 
 **Contribution Number:** [1 / 2 / 3]  
-**Student:** [Your Name]  
-**Issue:** [GitHub issue link]  
-**Status:** [Phase I / Phase II / Phase III / Phase IV] [In Progress / Complete]
+**Student:** Anthony Truong  
+**Issue:** [GitHub issue link]](https://github.com/wazuh/wazuh-ansible/issues/1931]
+**Status:** [Phase I Complete]
 
 ---
 
 ## Why I Chose This Issue
 
-[1-2 paragraphs explaining why this issue interests you, how it matches your skills/learning goals, what you hope to learn]
+I chose this issue as I personally use Wazuh and it's a great tool. I will boot up a Debian VM and try to recreate the issue and solve the problem.
 
 ---
 
