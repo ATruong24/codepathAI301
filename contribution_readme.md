@@ -117,29 +117,19 @@ Debian 12 works but Debian 13 does not.
 - Found that [INSERT FINDING: either "the package is unused and can be safely removed" OR "it's used in X role, so a conditional is needed"]
 - Applied the fix to wazuh-indexer, then audited wazuh-manager, wazuh-agent, and wazuh-dashboard for the same pattern
 
-### Week [Y] Progress
-
-[Continue documenting as you work]
-
-### Code Changes
-
-- **Files modified:** [List]
-- **Key commits:** [Links to important commits]
-- **Approach decisions:** [Why you chose certain approaches]
-
 ---
 
 ## Pull Request
 
-**PR Link:** [GitHub PR URL when submitted]
+**PR Link:** (https://github.com/wazuh/wazuh-ansible/pull/2176)
 
-**PR Description:** [Draft or final PR description - much of the content above can be adapted]
+**PR Description:** Removed the unused `software-properties-common` dependency from the wazuh-indexer Ansible role to fix installation failures on Debian 13, where the package is no longer available in stable repositories.
 
 **Maintainer Feedback:**
 - [Date]: [Summary of feedback received]
 - [Date]: [How you addressed it]
 
-**Status:** [Awaiting review / Iterating / Approved / Merged]
+**Status:** Awaiting review
 
 ---
 
@@ -147,15 +137,15 @@ Debian 12 works but Debian 13 does not.
 
 ### Technical Skills Gained
 
-[What you learned technically]
+I learned how to help open source project and help them despite not knowing the whole database.
 
 ### Challenges Overcome
 
-[What was hard and how you solved it]
+It was hard to understand what each folder and file do but after a couple of hours looking, it has been faster.
 
 ### What I'd Do Differently Next Time
 
-[Reflection on your process]
+I will create a more documented path and try to submit PR as soon as possible so I can get feedback and improve on it.
 
 ---
 
