@@ -1,35 +1,41 @@
-# Contribution [#]: [Issue Title]
+# Contribution 2: Deleting a string redirects to main component page instead of the next string
 
-**Contribution Number:** [1 / 2 / 3]  
-**Student:** [Your Name]  
-**Issue:** [GitHub issue link]  
-**Status:** [Phase I / Phase II / Phase III / Phase IV] [In Progress / Complete]
+**Contribution Number:** 2
+**Student:** Anthony Truong
+**Issue:**  https://github.com/WeblateOrg/weblate/issues/6812
+**Status:** Phase 1
 
 ---
 
 ## Why I Chose This Issue
 
-[1-2 paragraphs explaining why this issue interests you, how it matches your skills/learning goals, what you hope to learn]
-
+I chose issue #6812 because it's a well-scoped UX fix with clear maintainer buy-in nijel, Weblate's lead maintainer, confirmed in the very first comment that the current behavior is unintentional and should change. The fix is contained to the delete-string flow in Weblate's translation editor, which fits my Python/Django background.
 ---
 
 ## Understanding the Issue
 
 ### Problem Description
-
-[In your own words, what's broken or missing?]
+When a user deletes a translation string while working through a project, 
+Weblate redirects them back to the main component/language overview page 
+instead of continuing to the next string in the translation queue.
 
 ### Expected Behavior
 
-[What should happen?]
+After deleting a string, the user should be redirected to the next 
+string/unit in the queue the same behavior as after translating or 
+saving a string.
+
 
 ### Current Behavior
 
-[What actually happens?]
+The user is redirected to the component's main language page, interrupting 
+their workflow and forcing them to navigate back manually.
 
 ### Affected Components
 
-[Which parts of the codebase are involved?]
+Likely the string/unit deletion view and its redirect logic in Weblate's 
+translation editor (Django views layer). The exact file(s) will be 
+confirmed in Phase II once I can trace the code path.
 
 ---
 
