@@ -1,9 +1,11 @@
 # Contribution 2: Deleting a string redirects to main component page instead of the next string
 
-**Contribution Number:** 2
+**Contribution Number:** 3
 **Student:** Anthony Truong
 **Issue:**  https://github.com/WeblateOrg/weblate/issues/6812
 **Status:** Phase 1
+
+Stil working on issue. No further update this week.
 
 ---
 
