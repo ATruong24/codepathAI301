@@ -2,8 +2,10 @@
 
 **Contribution Number:** 1
 **Student:** Anthony Truong  
-**Issue:** [GitHub issue link]](https://github.com/wazuh/wazuh-ansible/issues/1931]
-**Status:** [Phase II Complete]
+**Issue:** [#1931](https://github.com/wazuh/wazuh-ansible/issues/1931)  
+**Status:** Phase IV Complete
+
+Resubmitting for Phase III and Phave IV Grading. Please take a look of changes.
 
 ---
 
@@ -83,6 +85,8 @@ Using UMPIRE framework (adapted):
 
 **Implement:** (https://github.com/ATruong24/wazuh-ansible/tree/fix-issue-1931)
 
+**Update after investigation:** Confirmed via code search that `add-apt-repository` and `apt_repository` module usage do not depend on `software-properties-common` anywhere in the codebase (Wazuh's repo is added via Ansible's native `apt_repository` module). This confirmed Option 1 (full removal) was correct rather than the conditional fallback — no `when:` clause was needed.
+
 **Review:** I'll read `CONTRIBUTING.md`, follow the commit message format used in recent merged PRs, and ensure ansible-lint passes before submitting.
 
 **Evaluate:** Re-run on a Debian 12 VM to confirm no regression for older releases.
@@ -109,12 +113,13 @@ Debian 12 works but Debian 13 does not.
 ---
 
 ## Implementation Notes
+**Update after investigation:** Confirmed via code search that `add-apt-repository` and `apt_repository` module usage do not depend on `software-properties-common` anywhere in the codebase (Wazuh's repo is added via Ansible's native `apt_repository` module). This confirmed Option 1 (full removal) was correct rather than the conditional fallback — no `when:` clause was needed.
 
 ### Week [3] Progress
 
 - Reviewed CONTRIBUTING.md and recent merged PRs for commit style conventions
 - Investigated whether software-properties-common is actually used by the indexer role by grepping for add-apt-repository and apt_repository across all roles
-- Found that [INSERT FINDING: either "the package is unused and can be safely removed" OR "it's used in X role, so a conditional is needed"]
+- Found that the package is unused (no add-apt-repository or apt_repository references anywhere in the 4.14.7 branch), so it could be safely removed entirely rather than made conditional
 - Applied the fix to wazuh-indexer, then audited wazuh-manager, wazuh-agent, and wazuh-dashboard for the same pattern
 
 ---
@@ -136,6 +141,15 @@ Debian 12 works but Debian 13 does not.
 ## Learnings & Reflections
 
 ### Technical Skills Gained
+I learned how to navigate a large, unfamiliar Ansible codebase by using GitHub's code search to trace whether a dependency (`software-properties-common`) was actually used anywhere before touching it, rather than assuming. I also learned that open-source projects often maintain multiple active release branches (main/6.0.0 vs the 4.14.7 maintenance branch) and that bug fixes need to target the branch where the bug actually lives, a distinction I initially missed. I practiced authenticating with GitHub via Personal Access Tokens instead of password auth.
+
+### Challenges Overcome
+The biggest challenge was realizing the repository's `main` branch had already been restructured for a 6.0.0 release, so the file path referenced in the original issue no longer existed there. I had to identify the correct maintenance branch (4.14.7) and re-verify my investigation and fix against that branch specifically.
+
+### What I'd Do Differently Next Time
+I'd check which branch an issue applies to before starting any investigation, rather than defaulting to `main`. This would have saved time I spent grepping the wrong branch. I'd also try to submit a narrower first commit and get early feedback before doing a full audit of all four roles, since maintainers may have opinions on scope.
+
+### Technical Skills Gained
 
 I learned how to help open source project and help them despite not knowing the whole database.
 
@@ -146,6 +160,9 @@ It was hard to understand what each folder and file do but after a couple of hou
 ### What I'd Do Differently Next Time
 
 I will create a more documented path and try to submit PR as soon as possible so I can get feedback and improve on it.
+
+**Maintainer Feedback:**
+- 2026-06-29: PR submitted and @[maintainer] tagged for review in a PR comment. No response yet.
 
 ---
 
